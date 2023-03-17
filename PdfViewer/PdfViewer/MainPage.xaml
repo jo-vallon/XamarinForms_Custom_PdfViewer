@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PdfViewer.MainPage">
+             x:Class="PdfViewer.MainPage"
+             BackgroundColor="Black">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="btn_plus" Clicked="btn_plus_Clicked" Text="1" BackgroundColor="Bisque" FontSize="Large" FontAttributes="Bold"></Button>
+            <Button x:Name="btn_moin" Clicked="btn_moin_Clicked" Text="2" BackgroundColor="Bisque" FontSize="Large" FontAttributes="Bold"></Button>
+            <Button x:Name="btn_5" Clicked="btn_5_Clicked"  Text="5" BackgroundColor="Bisque" FontSize="Large" FontAttributes="Bold"></Button>
+            <Button x:Name="btn_10" Clicked="btn_10_Clicked"  Text="10" BackgroundColor="Bisque" FontSize="Large" FontAttributes="Bold"></Button>
+        </StackLayout>
+        <Grid x:Name="cont" Padding="10" BackgroundColor="DarkGray">
+            <StackLayout>
+                <Image x:Name="img_pdf" Scale="{Binding ScaleImg}" Source="test1920X1920.png" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
+                        <PinchGestureRecognizer PinchUpdated="PinchGestureRecognizer_PinchUpdated"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </Grid>
     </StackLayout>
 
 </ContentPage>
